@@ -96,9 +96,9 @@ const NavbarSimple = () => {
           as="a"
           href="/"
           variant="h6"
-          className="mr-4 cursor-pointer py-1.5"
+          className="mr-4 cursor-pointer py-1.5 text-xl"
         >
-          BookHub
+          Book<span className="text-amber-400">Hub</span>
         </Typography>
         <div className="hidden lg:block">
           <NavList />
