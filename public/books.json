@@ -1,0 +1,80 @@
+[
+  {
+    "bookId": "1",
+    "bookName": "The Great Gatsby",
+    "author": "F. Scott Fitzgerald",
+    "image": "https://i.ibb.co/TbhwgQ4/image.png",
+    "review": "A captivating story set in the Jazz Age, exploring themes of decadence, idealism, and excess.",
+    "totalPages": 180,
+    "rating": 4.5,
+    "category": "Classic Literature",
+    "tags": ["Classic", "American Literature", "Jazz Age"],
+    "publisher": "Charles Scribner's Sons",
+    "yearOfPublishing": 1925
+  },
+  {
+    "bookId": "2",
+    "bookName": "1984",
+    "author": "George Orwell",
+    "image": "https://i.ibb.co/VWZ9g12/image.png",
+    "review": "A dystopian novel that delves into the dangers of totalitarianism and extreme political ideology.",
+    "totalPages": 328,
+    "rating": 4.7,
+    "category": "Science Fiction",
+    "tags": ["Dystopian", "Political Fiction", "Totalitarianism"],
+    "publisher": "Secker & Warburg",
+    "yearOfPublishing": 1949
+  },
+  {
+    "bookId": "3",
+    "bookName": "To Kill a Mockingbird",
+    "author": "Harper Lee",
+    "image": "https://i.ibb.co/YkFGTcX/image.png",
+    "review": "A profound novel that addresses the serious issues of racial inequality and moral growth.",
+    "totalPages": 281,
+    "rating": 4.8,
+    "category": "Fiction",
+    "tags": ["Classic", "Social Justice", "Coming of Age"],
+    "publisher": "J.B. Lippincott & Co.",
+    "yearOfPublishing": 1960
+  },
+  {
+    "bookId": "4",
+    "bookName": "Pride and Prejudice",
+    "author": "Jane Austen",
+    "image": "https://i.ibb.co/bLdSvcT/image.png",
+    "review": "A timeless romance novel that critiques the British landed gentry at the end of the 18th century.",
+    "totalPages": 279,
+    "rating": 4.6,
+    "category": "Romance",
+    "tags": ["Classic", "Romance", "Social Critique"],
+    "publisher": "T. Egerton",
+    "yearOfPublishing": 1813
+  },
+  {
+    "bookId": "5",
+    "bookName": "The Catcher in the Rye",
+    "author": "J.D. Salinger",
+    "image": "https://i.ibb.co/XJnRCmy/image.png",
+    "review": "A thought-provoking novel that delves into the mind of a troubled teenage boy.",
+    "totalPages": 214,
+    "rating": 4.3,
+    "category": "Literary Fiction",
+    "tags": ["Classic", "Coming of Age", "Psychological"],
+    "publisher": "Little, Brown and Company",
+    "yearOfPublishing": 1951
+  },
+  {
+    "bookId": "6",
+    "bookName": "Moby-Dick",
+    "author": "Herman Melville",
+    "image": "https://i.ibb.co/pfzJr3y/image.png",
+    "review": "An epic tale of obsession and adventure on the high seas.",
+    "totalPages": 585,
+    "rating": 4.1,
+    "category": "Adventure",
+    "tags": ["Classic", "Adventure", "Sea Story"],
+    "publisher": "Harper & Brothers",
+    "yearOfPublishing": 1851
+  }
+]
