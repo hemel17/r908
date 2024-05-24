@@ -23,8 +23,8 @@ const BooksCard = ({ book }) => {
         </CardHeader>
         <CardBody>
           <div className="flex gap-2">
-            {tags.map((tag) => {
-              return <Chip key={bookId} value={tag} color="green" />;
+            {tags.map((tag, idx) => {
+              return <Chip key={idx} value={tag} color="green" />;
             })}
           </div>
           <Typography variant="h5" color="white" className="my-3 font-medium">
