@@ -1,5 +1,6 @@
-import { Chip, Typography } from "@material-tailwind/react";
+import { Button, Chip, Typography } from "@material-tailwind/react";
 import { useLoaderData } from "react-router-dom";
+import { Bounce, toast } from "react-toastify";
 
 const BookDetails = () => {
   const book = useLoaderData();
@@ -61,6 +62,22 @@ const BookDetails = () => {
           <Typography>
             Rating : <span>{rating}</span>
           </Typography>
+        </div>
+        <div className="space-x-4">
+          <Button
+            color="green"
+            onClick={() =>
+              toast.success("🦄 Wow so easy!", {
+                position: "top-center",
+                autoClose: 2000,
+                theme: "dark",
+                transition: Bounce,
+              })
+            }
+          >
+            Read
+          </Button>
+          <Button color="blue-gray">Wishlist</Button>
         </div>
       </div>
     </section>
