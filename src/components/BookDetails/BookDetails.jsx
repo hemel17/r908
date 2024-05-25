@@ -17,20 +17,26 @@ const BookDetails = () => {
   } = book;
 
   return (
-    <section className="flex flex-col md:flex-row">
-      <figure>
-        <img src={image} alt={bookName} />
-      </figure>
-      <div>
+    <section className="flex flex-col gap-8 my-8 md:flex-row">
+      <div className="flex items-center justify-center flex-1">
+        <figure className="max-w-[90%]">
+          <img
+            src={image}
+            alt={bookName}
+            className="mx-auto max-w-96 max-h-96"
+          />
+        </figure>
+      </div>
+      <div className="flex-1 space-y-8">
         <Typography variant="h3">{bookName}</Typography>
         <Typography>By : {author}</Typography>
-        <Typography className="border-y-2">{category}</Typography>
+        <Typography className="py-4 border-y-2">{category}</Typography>
         <Typography>
           <span>Review : </span>
           {review}
         </Typography>
         <div className="flex gap-2">
-          <span>Tag</span>
+          <span>Tag : </span>
           {tags.map((tag, idx) => {
             return (
               <Chip
@@ -42,18 +48,20 @@ const BookDetails = () => {
             );
           })}
         </div>
-        <Typography className="border-t-2">
-          Number of Pages : <span>{totalPages}</span>
-        </Typography>
-        <Typography>
-          Publisher : <span>{publisher}</span>
-        </Typography>
-        <Typography>
-          Year of Publishing : <span>{yearOfPublishing}</span>
-        </Typography>
-        <Typography>
-          Rating : <span>{rating}</span>
-        </Typography>
+        <div className="pt-4 space-y-2 border-t-2 [&_span]:font-semibold">
+          <Typography>
+            Number of Pages : <span>{totalPages}</span>
+          </Typography>
+          <Typography>
+            Publisher : <span>{publisher}</span>
+          </Typography>
+          <Typography>
+            Year of Publishing : <span>{yearOfPublishing}</span>
+          </Typography>
+          <Typography>
+            Rating : <span>{rating}</span>
+          </Typography>
+        </div>
       </div>
     </section>
   );
