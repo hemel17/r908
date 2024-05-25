@@ -1,9 +1,11 @@
 import { Button, Chip, Typography } from "@material-tailwind/react";
-import { useLoaderData } from "react-router-dom";
-import { Bounce, toast } from "react-toastify";
+import { useLoaderData, useParams } from "react-router-dom";
+import { toast } from "react-toastify";
+import { saveReadBook } from "../../utility/localstorage";
 
 const BookDetails = () => {
   const book = useLoaderData();
+  const { bookId } = useParams();
   const {
     image,
     bookName,
@@ -16,6 +18,15 @@ const BookDetails = () => {
     yearOfPublishing,
     rating,
   } = book;
+
+  const handleRead = () => {
+    saveReadBook(bookId);
+    toast("read");
+  };
+
+  const handleWishlist = () => {
+    toast("wishlist");
+  };
 
   return (
     <section className="flex flex-col gap-8 my-8 md:flex-row">
@@ -64,20 +75,12 @@ const BookDetails = () => {
           </Typography>
         </div>
         <div className="space-x-4">
-          <Button
-            color="green"
-            onClick={() =>
-              toast.success("🦄 Wow so easy!", {
-                position: "top-center",
-                autoClose: 2000,
-                theme: "dark",
-                transition: Bounce,
-              })
-            }
-          >
+          <Button color="green" onClick={() => handleRead()}>
             Read
           </Button>
-          <Button color="blue-gray">Wishlist</Button>
+          <Button color="blue-gray" onClick={() => handleWishlist()}>
+            Wishlist
+          </Button>
         </div>
       </div>
     </section>

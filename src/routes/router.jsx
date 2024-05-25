@@ -7,6 +7,13 @@ import LatestBooks from "../pages/LatestBooks/LatestBooks";
 import SuggestedBooks from "../pages/SuggestedBooks/SuggestedBooks";
 import BookDetails from "../components/BookDetails/BookDetails";
 
+const loadBooks = async ({ params }) => {
+  const response = await fetch("/books.json");
+  const books = await response.json();
+  const book = books.find((book) => book.bookId === params.bookId);
+  return book;
+};
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -18,6 +25,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/listedBooks",
+        loader: () => fetch("./books.json"),
         element: <ListedBooks />,
       },
       {
@@ -34,12 +42,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/books/:bookId",
-        loader: async ({ params }) => {
-          const response = await fetch("/books.json");
-          const books = await response.json();
-          const book = books.find((book) => book.bookId === params.bookId);
-          return book;
-        },
+        loader: loadBooks,
         element: <BookDetails />,
       },
     ],
