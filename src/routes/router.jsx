@@ -6,6 +6,7 @@ import PagesToRead from "../pages/PagesToRead/PagesToRead";
 import LatestBooks from "../pages/LatestBooks/LatestBooks";
 import SuggestedBooks from "../pages/SuggestedBooks/SuggestedBooks";
 import BookDetails from "../components/BookDetails/BookDetails";
+import ErrorPage from "../components/ErrorPage/ErrorPage";
 
 const loadBooks = async ({ params }) => {
   const response = await fetch("/books.json");
@@ -18,6 +19,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <Root />,
+    errorElement: <ErrorPage />,
     children: [
       {
         path: "/",

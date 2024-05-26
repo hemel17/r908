@@ -73,7 +73,7 @@ const BookDetails = () => {
           <span>Review : </span>
           {review}
         </Typography>
-        <div className="flex gap-2">
+        <div className="flex flex-wrap gap-2">
           <span>Tag : </span>
           {tags.map((tag, idx) => {
             return (
