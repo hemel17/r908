@@ -1,12 +1,17 @@
 import { Button, Chip, Typography } from "@material-tailwind/react";
 import { useLoaderData, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
-import { saveReadBook } from "../../utility/localstorage";
+import {
+  getReadBook,
+  getWishlist,
+  saveReadBook,
+  saveWishlist,
+} from "../../utility/localstorage";
+import { useEffect, useState } from "react";
 
 const BookDetails = () => {
   const book = useLoaderData();
   const { bookId } = useParams();
-  const id = parseInt(bookId);
   const {
     image,
     bookName,
@@ -20,13 +25,33 @@ const BookDetails = () => {
     rating,
   } = book;
 
+  const [readBooks, setReadBooks] = useState([]);
+  const [wishlistBooks, setWishlistBooks] = useState([]);
+
+  useEffect(() => {
+    setReadBooks(getReadBook());
+    setWishlistBooks(getWishlist());
+  }, []);
+
   const handleRead = () => {
-    saveReadBook(id);
-    toast("read");
+    if (readBooks.includes(bookId)) {
+      return toast.error("Already Added To Read!");
+    }
+    saveReadBook(bookId);
+    setReadBooks([...readBooks, bookId]);
+    toast.success("Added to Read!");
   };
 
   const handleWishlist = () => {
-    toast("wishlist");
+    if (readBooks.includes(bookId)) {
+      return toast.error("Already Added To Read!");
+    }
+    if (wishlistBooks.includes(bookId)) {
+      return toast.error("Already Added To Wishlist!");
+    }
+    saveWishlist(bookId);
+    setWishlistBooks([...wishlistBooks, bookId]);
+    toast.success("Added to Wishlist!");
   };
 
   return (
