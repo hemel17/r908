@@ -6,6 +6,8 @@ import {
   CardBody,
   CardHeader,
   Chip,
+  Option,
+  Select,
   Tab,
   TabPanel,
   Tabs,
@@ -45,13 +47,61 @@ const ListedBooks = () => {
     }
   }, [books]);
 
+  const handleRating = () => {
+    const ratedRead = [...readBooks].sort((a, b) => b.rating - a.rating);
+    const ratedWish = [...wishlist].sort((a, b) => b.rating - a.rating);
+    console.log(ratedRead, ratedWish);
+    setReadBooks(ratedRead);
+    setWishlist(ratedWish);
+  };
+  const handlePages = () => {
+    const paginatedRead = [...readBooks].sort(
+      (a, b) => b.totalPages - a.totalPages
+    );
+    const paginatedWish = [...wishlist].sort(
+      (a, b) => b.totalPages - a.totalPages
+    );
+    setReadBooks(paginatedRead);
+    setWishlist(paginatedWish);
+  };
+
+  const handleYear = () => {
+    const yearRead = [...readBooks].sort(
+      (a, b) => b.yearOfPublishing - a.yearOfPublishing
+    );
+    const yearWish = [...wishlist].sort(
+      (a, b) => b.yearOfPublishing - a.yearOfPublishing
+    );
+    setReadBooks(yearRead);
+    setWishlist(yearWish);
+  };
+
+  const handleSortChange = (e) => {
+    if (e === "rating") {
+      handleRating();
+    }
+    if (e === "pages") {
+      handlePages();
+    }
+    if (e === "year") {
+      handleYear();
+    }
+  };
+
   return (
     <section className="my-6">
       <Typography variant="h2" className="text-center text-white">
         Books For Your Soul
       </Typography>
+      <div className="p-4 mx-auto my-4 bg-white rounded-lg w-72">
+        <Select label="Sort By" onChange={(e) => handleSortChange(e)}>
+          <Option value="rating">Rating</Option>
+          <Option value="pages">Number of pages</Option>
+          <Option value="year">Published year</Option>
+        </Select>
+      </div>
       <Tabs className="my-6" value="read">
-        <TabsHeader>
+        <TabsHeader className="mx-auto max-w-96">
           {data.map(({ label, value }) => (
             <Tab key={value} value={value}>
               {label}
