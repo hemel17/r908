@@ -110,7 +110,7 @@ const ListedBooks = () => {
         </TabsHeader>
         <TabsBody>
           {data.map(({ value, desc }) => (
-            <TabPanel className="space-y-4" key={value} value={value}>
+            <TabPanel className="space-y-6" key={value} value={value}>
               {desc.map((book) => {
                 const {
                   bookId,
@@ -136,7 +136,7 @@ const ListedBooks = () => {
                           <img className="w-full" src={image} alt={bookName} />
                         </figure>
                       </CardHeader>
-                      <CardBody>
+                      <CardBody className="space-y-4">
                         <Typography
                           variant="h5"
                           color="blue-gray"
