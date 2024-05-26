@@ -6,6 +6,7 @@ import { saveReadBook } from "../../utility/localstorage";
 const BookDetails = () => {
   const book = useLoaderData();
   const { bookId } = useParams();
+  const id = parseInt(bookId);
   const {
     image,
     bookName,
@@ -20,7 +21,7 @@ const BookDetails = () => {
   } = book;
 
   const handleRead = () => {
-    saveReadBook(bookId);
+    saveReadBook(id);
     toast("read");
   };
 
